@@ -1,0 +1,20 @@
+asat(@r[scores={sneak=1..}]) {
+  var sneak @s = run: scoreboard players get @s sneak;
+  anchored('feet') {
+    if('block ~ ~-0.1 ~ minecraft:iron_trapdoor[half=top]') {
+        falling @s = true;
+        /tp ~ ~-0.2 ~
+    } else {
+      falling @s = false;
+    }
+  }
+  anchored('eyes') {
+      if('block ^ ^ ^0.5 iron_trapdoor') {
+        anchored('feet') {
+          /tp @s ~ ~ ~ ~ 0
+          /tp @s ^ ^ ^1
+        }
+        willbeteleported @s = false;
+      }
+  }
+}

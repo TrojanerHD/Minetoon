@@ -1,0 +1,55 @@
+asat(@r) {
+  var sneak @s = run: scoreboard players get @s sneak;
+  if(!lobby @s) {
+    // if the player is in the purple team
+    if('entity @s[team=purple]') {
+      // if the player is standing on a block from his/her team he gets invisibility and speed
+      if('block ~ ~-0.1 ~ #splatoon:purple_hide'&&sneak @s >= 1) {
+        hiding @s = true;
+        invisibility @s = true;
+        speed @s = true;
+      }
+      // if the player is standing on a block from his/her team he will get removed invisibility and speed and gets slowness
+      if('block ~ ~-0.1 ~ #splatoon:cyan_hide') {
+        hiding @s = false;
+        /effect give @s slowness 1 3 true
+        speed @s = false;
+      }
+      // if the player is neither standing on a block from his/her own team nor is standing on a block from the opponents' team he'll get removed of all of the effects
+      if(!'block ~ ~-0.1 ~ #splatoon:purple_hide') {
+        hiding @s = false;
+        speed @s = false;
+     }
+   }
+      // if the player is in the cyan team
+    if('entity @s[team=cyan]') {
+      // if the player is standing on a block from his/her team he gets invisibility and speed
+      if('block ~ ~-0.1 ~ #splatoon:cyan_hide'&&sneak @s >= 1) {
+        hiding @s = true;
+        speed @s = true;
+      }
+      // if the player is standing on a block from his/her team he will get removed invisibility and speed and gets slowness
+      if('block ~ ~-0.1 ~ #splatoon:purple_hide') {
+        hiding @s = false;
+        /effect give @s slowness 1 3 true
+        speed @s = false;
+      }
+      // if the player is neither standing on a block from his/her own team nor is standing on a block from the opponents' team he'll get removed of all of the effects
+      if(!'block ~ ~-0.1 ~ #splatoon:cyan_hide') {
+        hiding @s = false;
+        speed @s = false;
+     }
+  }
+  }
+  if(sneak @s == 0) {
+    hiding @s = false;
+    invisibility @s = false;
+    speed @s = false;
+  }
+  if(sneak @s >= 1) {
+    invisibility @s = true;
+//    if('block ~ ~-1 ~ air') {
+//      /tp @s ~ ~-0.1 ~
+//    }
+  }
+}

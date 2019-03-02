@@ -1,0 +1,30 @@
+{
+  "values": [
+    "#minecraft:logs",
+    "#minecraft:anvil",
+    "#minecraft:banners",
+    "#minecraft:beds",
+    "#minecraft:buttons",
+    "#minecraft:carpets",
+    "#minecraft:coral_blocks",
+    "#minecraft:coral_plants",
+    "#minecraft:dirt_like",
+    "#minecraft:doors",
+    "#minecraft:fences",
+    "#minecraft:flower_pots",
+    "#minecraft:ice",
+    "#minecraft:impermeable",
+    "#minecraft:leaves",
+    "#minecraft:planks",
+    "#minecraft:rails",
+    "#minecraft:sand",
+    "#minecraft:saplings",
+    "#minecraft:signs",
+    "#minecraft:slabs",
+    "#minecraft:trapdoors",
+    "#minecraft:walls",
+    "#minecraft:wool",
+    "#minecraft:underwater_bonemeals",
+    "minecraft:sea_pickle"
+  ]
+}

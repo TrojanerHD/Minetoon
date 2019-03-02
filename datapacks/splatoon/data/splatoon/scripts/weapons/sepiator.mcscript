@@ -1,0 +1,16 @@
+if('entity @s[team=purple,scores={ink=45..}]') {
+  /summon minecraft:armor_stand ~ ~ ~ {CustomName:"{\"text\":\"particle_purple\"}",Tags:["sepiator","projectile","purple"],NoGravity:1,Marker:1,Invisible:1}
+  var duration @e[type=armor_stand,name=particle_purple,limit=1,sort=nearest] = 0;
+  anchored('eyes') {
+    /tp @e[type=armor_stand,name=particle_purple,limit=1,sort=nearest] ~ ~ ~ ~ ~
+    /scoreboard players remove @s ink 45
+  }
+}
+if('entity @s[team=cyan,scores={ink=45..}]') {
+  /summon minecraft:armor_stand ~ ~ ~ {CustomName:"{\"text\":\"particle_cyan\"}",Tags:["sepiator","projectile","cyan"],NoGravity:1,Marker:1,Invisible:1}
+  var duration @e[type=armor_stand,name=particle_purple,limit=1,sort=nearest] = 0;
+  anchored('eyes') {
+    /tp @e[type=armor_stand,name=particle_cyan,limit=1,sort=nearest] ~ ~ ~ ~ ~
+    /scoreboard players remove @s ink 45
+  }
+}

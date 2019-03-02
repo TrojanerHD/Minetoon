@@ -1,0 +1,11 @@
+as(@r) {
+  if(!hasStart){
+    positioned('-1 10 7'){
+      if('block ~ ~ ~ minecraft:stone_button[powered=true]') {
+        /tag @a remove lobby
+        /scoreboard players add @p start 3600
+        hasStart = true;
+      }
+    }
+  }
+}

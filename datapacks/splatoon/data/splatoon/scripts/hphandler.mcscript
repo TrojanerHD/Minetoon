@@ -1,0 +1,27 @@
+ modal damage() {
+  bool damage @a[tag=tempdamage] = true;
+  tempdamage @a[tag=tempdamage] = false;
+  damage @a[distance=0.5..,tag=damage] = false;
+}
+
+if('entity @s[name=particle_cyan]') {
+  bool tempdamage @a[distance=..0.5,team=purple,tag=!tempdamage,tag=!damage] = true;
+  /scoreboard players remove @a[tag=tempdamage,tag=!damage] hp 1
+  damage();
+}
+
+if('entity @s[name=particle_purple]') {
+  tempdamage @a[distance=..0.5,team=cyan,tag=!tempdamage,tag=!damage] = true;
+  /scoreboard players remove @a[tag=tempdamage,tag=!damage] hp 1
+  damage();
+}
+
+as(@a[scores={hp=..0}]) {
+  /scoreboard players set @s hp 0
+}
+
+as(@r[tag=dead,gamemode=!creative]) {
+  /kill @s
+  bool dead @s = false;
+  var hp @s = 150;
+}

@@ -1,0 +1,26 @@
+#file: ./weaponhandler
+modal addweapon('name','damage','function') {
+  var delay @s = run: scoreboard players get @s delay;
+  if('entity @s[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Unbreakable:1,display:{Name:"{\\"text\\":\\"$(name)\\"}"},Damage:$(damage)}}}]') {
+    /function splatoon:weapons/$(function)
+    delay @s = 0;
+  }
+}
+
+asat(@a) {
+  var click @s = run: scoreboard players get @s click;
+  if(click @s >= 1) {
+    if(delay @s >= 10) {
+      addweapon('Splattershot','1','splattershot')
+    }
+    if(delay @s >= 30) {
+      addweapon('Sepiator','2','sepiator')
+    }
+    if(delay @s >= 30) {
+      addweapon('Slosher','3','slosher')
+      addweapon('Slosher','4','slosher')
+    }
+    click @s = 0;
+  }
+  delay @s++;
+}

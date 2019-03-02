@@ -1,0 +1,13 @@
+positioned('-1 10 12'){
+  if('block ~ ~ ~ minecraft:stone_button[powered=true]') {
+    /tp @p 9.39 7.00 -138.37 -177.1 54.4
+  }
+}
+
+positioned('9 5 -140'){
+  if('block ~ ~ ~ minecraft:stone_button[powered=true]') {
+    /tp @p 0.23 11.00 12.46 88.4 6.3
+  }
+}
+
+/schedule function splatoon:random_stuff 1s

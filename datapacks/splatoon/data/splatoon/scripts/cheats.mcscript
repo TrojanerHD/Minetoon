@@ -1,0 +1,25 @@
+as(@r[scores={infinityink=1..}]) {
+  //This boolean is only here to handle the ink. If a player does not have the tag triggerink he will get "tempink". If this tag would not be there it would remove the tag "triggerink" instantly after giving it because then you would have to check on the "triggerink"-tag and if you give a player the tag and check for it just after, it would not work because the player would have the tag to 100%.
+  bool tempink @s = false;
+  if(!'entity @s[tag=triggerink]'){
+    tempink @s = true;
+  }
+
+  if(tempink @s) {
+    triggerink @s = true;
+    /tellraw @s [{"text":"You've ","color":"reset"},{"text":"activated","color":"green"},{"text":" the cheat code ","color":"reset"},{"text":"infinityink","color":"gold"}]
+  }
+
+  if(!tempink @s) {
+    triggerink @s = false;
+    /tellraw @s [{"text":"You've ","color":"reset"},{"text":"deactivated","color":"dark_red"},{"text":" the cheat code ","color":"reset"},{"text":"infinityink","color":"gold"},{"text":"!","color":"reset"}]
+  }
+  /scoreboard players set @a infinityink 0
+}
+
+as(@r) {
+  if('entity @s[tag=triggerink]') {
+    /scoreboard players set @s ink 250
+  }
+  /scoreboard players enable @s infinityink
+}

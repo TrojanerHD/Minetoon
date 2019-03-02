@@ -1,0 +1,103 @@
+/function splatoon:hiding
+/function splatoon:climbing
+/function splatoon:falling
+/function splatoon:squid
+/function splatoon:start_game
+
+asat(@a) {
+  bool dead = false;
+  var sneak @s = run: scoreboard players get @s sneak;
+  /scoreboard players enable @s leave
+  if('block ~ ~-0.1 ~ #splatoon:killblocks') {
+    dead @s = true;
+  }
+
+  if('block ~ ~-0.1 ~ #splatoon:alllist[waterlogged=true]') {
+      dead @s = true
+  }
+
+  sneak @s = 0;
+}
+
+as(@e[type=armor_stand,name=squid,limit=1,sort=random,tag=!armorstandid]) {
+    var id @s = run: scoreboard players get armorstandid id;
+    id armorstandid++;
+    bool armorstandid @s = true;
+}
+
+asat(@r[tag=!summonedStand]) {
+  /summon armor_stand ~ ~ ~ {Invisible:1,CustomName:"{\"text\":\"squid\"}",NoGravity:1,Marker:1}
+  bool summonedStand @s = true;
+}
+
+as(@r[tag=!playerid]) {
+  bool receiveID @s = true;
+}
+
+as(@a[tag=receiveID]) {
+  var id @s = run: scoreboard players get playerid id;
+  id playerid++;
+  bool playerid @s = true;
+  receiveID @s = false;
+}
+
+as(@e[type=item]) {
+  var Age @s = run: data get entity @s Age
+}
+
+asat(@r[tag=del]) {
+  as(@e[type=item,distance=..2,scores={Age=..20}]) {
+    /kill @s
+  }
+}
+
+as(@r[scores={start=1..}]){
+  as(@a[tag=lobby]){
+
+  }
+  lobby @a = false;
+  /scoreboard players remove @s start 1
+  /bossbar set minecraft:time visible true
+  /execute store result bossbar minecraft:time value run scoreboard players get @s start
+  if(start @s == 2400) {
+    /title @a actionbar [{"text":"Noch 2 Minuten!","color":"yellow"}]
+  }
+
+  if(start == 1200) {
+    /title @a actionbar [{"text":"Noch 1 Minute!","color":"yellow"}]
+  }
+
+  if(start == 600) {
+    /title @a actionbar [{"text":"Noch 30 Sekunden!","color":"red"}]
+  }
+}
+
+as(@r[scores={start=..0}]) {
+  /bossbar set minecraft:time visible false
+  hasStart = false;
+  /scoreboard players reset @a start
+  /scoreboard players set @a timer 200
+}
+
+as(@a[scores={timer=1..}]) {
+  /scoreboard players remove @a timer 1
+  /gamemode spectator @a
+  /tp @a 42.00 32.00 -181.02 -90 90
+  if('score @s timer matches ..0') {
+    /tag @a add lobby
+    /gamemode adventure @a
+    /tp @a 9.98 9.50 9.00
+  }
+}
+
+
+as(@a) {
+  if('score @s ink matches 251..') {
+    /scoreboard players set @s ink 250
+  }
+  if('score @s ink matches ..0') {
+    /scoreboard players set @s ink 0
+  }
+
+
+}

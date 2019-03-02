@@ -1,0 +1,281 @@
+modal projectilespeed(weapon,startSpeed,endSpeed,startTilt,endTilt,duration,start,end) {
+  if('entity @s[tag=$(weapon)]') {
+    /tp @s[scores={duration=..$(start)}] ^ ^ ^$(startSpeed) ~ ~$(startTilt)
+    /tp @s[scores={duration=$(end)..}] ^ ^ ^$(endSpeed) ~ ~$(endTilt)
+    var duration @s = run: scoreboard players get @s duration;
+    duration @s++;
+    if(duration @s >= $(duration)) {
+      /kill @s
+    }
+  }
+}
+
+modal spread(uncolored,block,color,radius,radiusup,radiusdown) {
+    //fill ~-1 ~ ~-1 ~1 ~2 ~1 (bei einem Radius = 1)
+    //fill ~-2 ~-1 ~-2 ~2 ~3 ~2 (bei einem Radius = 2)
+    positioned('~ ~2 ~') {
+      /execute store result score @s filledblocks run fill ~-$(radius) ~-$(radiusdown) ~-$(radius) ~$(radius) ~$(radiusup) ~$(radius) minecraft:$(block) replace #splatoon:$(uncolored)
+    }
+    var filledblocks @s = run: scoreboard players get @s filledblocks;
+    if(filledblocks @s >= 1) {
+      bool kill @s = true;
+    }
+}
+
+modal stairs(facing,block,half,color,radius,radiusup,radiusdown) {
+  positioned('~ ~2 ~') {
+      /execute store result score @s filledblocks run fill ~-$(radius) ~-$(radiusdown) ~-$(radius) ~$(radius) ~$(radiusup) ~$(radius) minecraft:$(block)_stairs[facing=$(facing),half=$(half)] replace #splatoon:quartz_stairs[facing=$(facing),half=$(half)]
+      var filledblocks @s = run: scoreboard players get @s filledblocks;
+      if(filledblocks @s >= 1) {
+        bool kill @s = true;
+      }
+  }
+}
+
+modal slabs(block,type,color,radius,radiusup,radiusdown) {
+  positioned('~ ~2 ~') {
+      /execute store result score @s filledblocks run fill ~-$(radius) ~-$(radiusdown) ~-$(radius) ~$(radius) ~$(radiusup) ~$(radius) minecraft:$(block)_slab[type=$(type)] replace #splatoon:quartz_slabs[type=$(type)]
+      var filledblocks @s = run: scoreboard players get @s filledblocks;
+      if(filledblocks @s >= 1) {
+        bool kill @s = true;
+      }
+  }
+}
+
+asat(@e[type=armor_stand,tag=projectile]) {
+  //weapon, start speed, end speed, start tilt, end tilt, duration, start, end
+  projectilespeed("splattershot","0.8","0.6","3","6","50","29","30")
+  projectilespeed("sepiator","1.4","1.2","1","3","50","29","30")
+  projectilespeed("slosher","0.7","0.5","4","8","40","4","5")
+
+  /function splatoon:hphandler
+
+  if('entity @s[name=particle_cyan,tag=projectile,tag=splattershot]') {
+    /particle minecraft:dust 0 0.9 1 4 ~ ~1.5 ~
+      anchored('eyes') {
+        if('block ~ ~1 ~ #splatoon:all_blocks') {
+            spread('concretes','cyan_concrete','cyan','1','0','2')
+            spread('glass','cyan_stained_glass','cyan','1','0','2')
+            spread('glass_panes','cyan_stained_glass_pane','cyan','1','0','2')
+            spread('quartz_pillar','prismarine_bricks','cyan','1','0','2')
+            spread('chiseled_quartz_block','prismarine','cyan','1','0','2')
+            spread('white_concrete_powder','cyan_concrete_powder','cyan','1','0','2')
+
+            stairs('north','prismarine_brick','top','cyan','1','0','2')
+            stairs('north','prismarine_brick','top','cyan','1','0','2')
+            stairs('east','prismarine_brick','top','cyan','1','0','2')
+            stairs('west','prismarine_brick','top','cyan','1','0','2')
+            stairs('south','prismarine_brick','top','cyan','1','0','2')
+            stairs('north','prismarine_brick','bottom','cyan','1','0','2')
+            stairs('east','prismarine_brick','bottom','cyan','1','0','2')
+            stairs('west','prismarine_brick','bottom','cyan','1','0','2')
+            stairs('south','prismarine_brick','bottom','cyan','1','0','2')
+
+            slabs('prismarine_brick','top','cyan','1','0','2')
+            slabs('prismarine_brick','top','cyan','1','0','2')
+            slabs('prismarine_brick','top','cyan','1','0','2')
+            slabs('prismarine_brick','top','cyan','1','0','2')
+            slabs('prismarine_brick','top','cyan','1','0','2')
+            slabs('prismarine_brick','bottom','cyan','1','0','2')
+            slabs('prismarine_brick','bottom','cyan','1','0','2')
+            slabs('prismarine_brick','bottom','cyan','1','0','2')
+            slabs('prismarine_brick','bottom','cyan','1','0','2')
+      }
+    }
+  }
+  if('entity @s[name=particle_purple,tag=projectile,tag=splattershot]') {
+    /particle minecraft:dust 0.9 0 1 3 ~ ~1.5 ~
+    anchored('eyes') {
+      if('block ~ ~1 ~ #splatoon:all_blocks') {
+        spread('concretes','purple_concrete','purple','1','0','2')
+        spread('glass','purple_stained_glass','purple','1','0','2')
+        spread('glass_panes','purple_stained_glass_pane','purple','1','0','2')
+        spread('quartz_pillar','purpur_pillar','purple','1','0','2')
+        spread('chiseled_quartz_block','purpur_block','purple','1','0','2')
+        spread('white_concrete_powder','purple_concrete_powder','purple','1','0','2')
+
+        stairs('north','purpur','top','purple','1','0','2')
+        stairs('east','purpur','top','purple','1','0','2')
+        stairs('west','purpur','top','purple','1','0','2')
+        stairs('south','purpur','top','purple','1','0','2')
+        stairs('north','purpur','bottom','purple','1','0','2')
+        stairs('east','purpur','bottom','purple','1','0','2')
+        stairs('west','purpur','bottom','purple','1','0','2')
+        stairs('south','purpur','bottom','purple','1','0','2')
+
+        slabs('purpur','top','cyan','1','0','2')
+        slabs('purpur','top','cyan','1','0','2')
+        slabs('purpur','top','cyan','1','0','2')
+        slabs('purpur','top','cyan','1','0','2')
+        slabs('purpur','top','cyan','1','0','2')
+        slabs('purpur','bottom','cyan','1','0','2')
+        slabs('purpur','bottom','cyan','1','0','2')
+        slabs('purpur','bottom','cyan','1','0','2')
+        slabs('purpur','bottom','cyan','1','0','2')
+      }
+    }
+  }
+  if('entity @s[name=particle_purple,tag=projectile,tag=splattershot]') {
+    /particle minecraft:dust 0.9 0 1 1 ~ ~1.5 ~
+    anchored('eyes') {
+      if('block ~ ~1 ~ #splatoon:all_blocks') {
+        spread('concretes','purple_concrete','purple','1','0','2')
+        spread('glass','purple_stained_glass','purple','1','0','2')
+        spread('glass_panes','purple_stained_glass_pane','purple','1','0','2')
+        spread('quartz_pillar','purpur_pillar','purple','1','0','2')
+        spread('chiseled_quartz_block','purpur_block','purple','1','0','2')
+        spread('white_concrete_powder','purple_concrete_powder','purple','1','0','2')
+
+        stairs('north','purpur','top','purple','1','0','2')
+        stairs('east','purpur','top','purple','1','0','2')
+        stairs('west','purpur','top','purple','1','0','2')
+        stairs('south','purpur','top','purple','1','0','2')
+        stairs('north','purpur','bottom','purple','1','0','2')
+        stairs('east','purpur','bottom','purple','1','0','2')
+        stairs('west','purpur','bottom','purple','1','0','2')
+        stairs('south','purpur','bottom','purple','1','0','2')
+
+        slabs('purpur','top','cyan','1','0','2')
+        slabs('purpur','top','cyan','1','0','2')
+        slabs('purpur','top','cyan','1','0','2')
+        slabs('purpur','top','cyan','1','0','2')
+        slabs('purpur','top','cyan','1','0','2')
+        slabs('purpur','bottom','cyan','1','0','2')
+        slabs('purpur','bottom','cyan','1','0','2')
+        slabs('purpur','bottom','cyan','1','0','2')
+        slabs('purpur','bottom','cyan','1','0','2')
+      }
+    }
+  }
+  if('entity @s[name=particle_cyan,tag=projectile,tag=sepiator]') {
+    /particle minecraft:dust 0 0.9 1 1 ~ ~1.5 ~
+      anchored('eyes') {
+        if('block ~ ~1 ~ #splatoon:all_blocks') {
+            spread('concretes','cyan_concrete','cyan','0','3','1')
+            spread('glass','cyan_stained_glass','cyan','0','3','1')
+            spread('glass_panes','cyan_stained_glass_pane','cyan','0','3','1')
+            spread('quartz_pillar','prismarine_bricks','cyan','0','3','1')
+            spread('chiseled_quartz_block','prismarine','cyan','0','3','1')
+            spread('white_concrete_powder','cyan_concrete_powder','cyan','0','3','1')
+
+            stairs('north','prismarine_brick','top','cyan','0','3','1')
+            stairs('north','prismarine_brick','top','cyan','0','3','1')
+            stairs('east','prismarine_brick','top','cyan','0','3','1')
+            stairs('west','prismarine_brick','top','cyan','0','3','1')
+            stairs('south','prismarine_brick','top','cyan','0','3','1')
+            stairs('north','prismarine_brick','bottom','cyan','0','3','1')
+            stairs('east','prismarine_brick','bottom','cyan','0','3','1')
+            stairs('west','prismarine_brick','bottom','cyan','0','3','1')
+            stairs('south','prismarine_brick','bottom','cyan','0','3','1')
+
+            slabs('prismarine_brick','top','cyan','0','3','1')
+            slabs('prismarine_brick','top','cyan','0','3','1')
+            slabs('prismarine_brick','top','cyan','0','3','1')
+            slabs('prismarine_brick','top','cyan','0','3','1')
+            slabs('prismarine_brick','top','cyan','0','3','1')
+            slabs('prismarine_brick','bottom','cyan','0','3','1')
+            slabs('prismarine_brick','bottom','cyan','0','3','1')
+            slabs('prismarine_brick','bottom','cyan','0','3','1')
+            slabs('prismarine_brick','bottom','cyan','0','3','1')
+      }
+    }
+  }
+  if('entity @s[name=particle_purple,tag=projectile,tag=sepiator]') {
+    /particle minecraft:dust 0.9 0 1 1 ~ ~1.5 ~
+    anchored('eyes') {
+      if('block ~ ~1 ~ #splatoon:all_blocks') {
+        spread('concretes','purple_concrete','purple','0','3','1')
+        spread('glass','purple_stained_glass','purple','0','3','1')
+        spread('glass_panes','purple_stained_glass_pane','purple','0','3','1')
+        spread('quartz_pillar','purpur_pillar','purple','0','3','1')
+        spread('chiseled_quartz_block','purpur_block','purple','0','3','1')
+        spread('white_concrete_powder','purple_concrete_powder','purple','0','3','1')
+
+        stairs('north','purpur','top','purple','0','3','1')
+        stairs('east','purpur','top','purple','0','3','1')
+        stairs('west','purpur','top','purple','0','3','1')
+        stairs('south','purpur','top','purple','0','3','1')
+        stairs('north','purpur','bottom','purple','0','3','1')
+        stairs('east','purpur','bottom','purple','0','3','1')
+        stairs('west','purpur','bottom','purple','0','3','1')
+        stairs('south','purpur','bottom','purple','0','3','1')
+
+        slabs('purpur','top','cyan','0','3','1')
+        slabs('purpur','top','cyan','0','3','1')
+        slabs('purpur','top','cyan','0','3','1')
+        slabs('purpur','top','cyan','0','3','1')
+        slabs('purpur','top','cyan','0','3','1')
+        slabs('purpur','bottom','cyan','0','3','1')
+        slabs('purpur','bottom','cyan','0','3','1')
+        slabs('purpur','bottom','cyan','0','3','1')
+        slabs('purpur','bottom','cyan','0','3','1')
+      }
+    }
+  }
+  if('entity @s[name=particle_cyan,tag=projectile,tag=slosher]') {
+    /particle minecraft:dust 0 0.9 1 10 ~ ~1.5 ~
+      anchored('eyes') {
+        if('block ~ ~1 ~ #splatoon:all_blocks') {
+            spread('concretes','cyan_concrete','cyan','3','2','4')
+            spread('glass','cyan_stained_glass','cyan','3','2','4')
+            spread('glass_panes','cyan_stained_glass_pane','cyan','3','2','4')
+            spread('quartz_pillar','prismarine_bricks','cyan','3','2','4')
+            spread('chiseled_quartz_block','prismarine','cyan','3','2','4')
+            spread('white_concrete_powder','cyan_concrete_powder','cyan','3','2','4')
+
+            stairs('north','prismarine_brick','top','cyan','3','2','4')
+            stairs('north','prismarine_brick','top','cyan','3','2','4')
+            stairs('east','prismarine_brick','top','cyan','3','2','4')
+            stairs('west','prismarine_brick','top','cyan','3','2','4')
+            stairs('south','prismarine_brick','top','cyan','3','2','4')
+            stairs('north','prismarine_brick','bottom','cyan','3','2','4')
+            stairs('east','prismarine_brick','bottom','cyan','3','2','4')
+            stairs('west','prismarine_brick','bottom','cyan','3','2','4')
+            stairs('south','prismarine_brick','bottom','cyan','3','2','4')
+
+            slabs('prismarine_brick','top','cyan','3','2','4')
+            slabs('prismarine_brick','top','cyan','3','2','4')
+            slabs('prismarine_brick','top','cyan','3','2','4')
+            slabs('prismarine_brick','top','cyan','3','2','4')
+            slabs('prismarine_brick','top','cyan','3','2','4')
+            slabs('prismarine_brick','bottom','cyan','3','2','4')
+            slabs('prismarine_brick','bottom','cyan','3','2','4')
+            slabs('prismarine_brick','bottom','cyan','3','2','4')
+            slabs('prismarine_brick','bottom','cyan','3','2','4')
+      }
+    }
+  }
+  if('entity @s[name=particle_purple,tag=projectile,tag=slosher]') {
+    /particle minecraft:dust 0.9 0 1 10 ~ ~1.5 ~
+    anchored('eyes') {
+      if('block ~ ~1 ~ #splatoon:all_blocks') {
+        spread('concretes','purple_concrete','purple','3','2','4')
+        spread('glass','purple_stained_glass','purple','3','2','4')
+        spread('glass_panes','purple_stained_glass_pane','purple','3','2','4')
+        spread('quartz_pillar','purpur_pillar','purple','3','2','4')
+        spread('chiseled_quartz_block','purpur_block','purple','3','2','4')
+        spread('white_concrete_powder','purple_concrete_powder','purple','3','2','4')
+
+        stairs('north','purpur','top','purple','3','2','4')
+        stairs('east','purpur','top','purple','3','2','4')
+        stairs('west','purpur','top','purple','3','2','4')
+        stairs('south','purpur','top','purple','3','2','4')
+        stairs('north','purpur','bottom','purple','3','2','4')
+        stairs('east','purpur','bottom','purple','3','2','4')
+        stairs('west','purpur','bottom','purple','3','2','4')
+        stairs('south','purpur','bottom','purple','3','2','4')
+
+        slabs('purpur','top','cyan','3','2','4')
+        slabs('purpur','top','cyan','3','2','4')
+        slabs('purpur','top','cyan','3','2','4')
+        slabs('purpur','top','cyan','3','2','4')
+        slabs('purpur','top','cyan','3','2','4')
+        slabs('purpur','bottom','cyan','3','2','4')
+        slabs('purpur','bottom','cyan','3','2','4')
+        slabs('purpur','bottom','cyan','3','2','4')
+        slabs('purpur','bottom','cyan','3','2','4')
+      }
+    }
+  }
+  /kill @s[tag=kill]
+}

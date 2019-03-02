@@ -1,0 +1,23 @@
+modal carrot_give(breakstate,name) {
+  /clear @s minecraft:carrot_on_a_stick{Unbreakable:1,Damage:$(breakstate),display:{Name:"{\"text\":\"$(name)\"}"}}
+  /give @s minecraft:carrot_on_a_stick{Unbreakable:1,Damage:$(breakstate),display:{Name:"{\"text\":\"$(name)\"}"}}
+}
+
+modal conlog(message) {
+  /tellraw @a [{"text":"<console> ","color":"green"},{"text":"message","color":"reset"}]
+}
+
+asat(@a) {
+  bool lobby @s[gamemode=!creative] = true;
+  bool lobby @s[gamemode=creative] = false;
+  bool dead @s = false;
+  bool invisibility @s = false;
+  bool speed @s = false;
+  bool falling @s = false;
+  bool hiding @s = false;
+  var counter = 0;
+  bool infinityink @s = true;
+  var start @s = 0;
+  bool willbeteleported @s = false;
+}
+bool hasStart = false;

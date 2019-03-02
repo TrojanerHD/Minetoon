@@ -1,0 +1,175 @@
+#gamerule set
+/gamerule doMobSpawning false
+/kill @e[type=armor_stand,name=squid,tag=armorstandid]
+/tag @a remove summonedStand
+
+#scoreboard objectives and first sets
+/scoreboard objectives add click minecraft.used:minecraft.carrot_on_a_stick
+/scoreboard objectives add sneak minecraft.custom:minecraft.sneak_time
+/scoreboard objectives add duration
+/scoreboard objectives add id dummy
+/scoreboard objectives add Age dummy
+/scoreboard objectives add counter dummy
+/scoreboard objectives add filledblocks dummy
+/scoreboard objectives add hp dummy
+/scoreboard objectives add delay dummy
+/scoreboard objectives add infinityink trigger
+/scoreboard players enable @a infinityink
+/scoreboard objectives add ink dummy
+/scoreboard players set @a ink 250
+/scoreboard objectives add start dummy
+/scoreboard players reset @a start
+/scoreboard objectives add second dummy
+/scoreboard objectives add timer dummy
+
+#bossbar time
+/bossbar add time "Time"
+/bossbar set minecraft:time max 3600
+/bossbar set minecraft:time value 3600
+/bossbar set minecraft:time players @a
+/bossbar set minecraft:time visible false
+
+# bossbars inks
+
+/bossbar add purple_ink_0 {"text":"Ink: (0/250)","color":"purple"}
+/bossbar add purple_ink_25 {"text":"Ink: (25/250)","color":"purple"}
+/bossbar add purple_ink_50 {"text":"Ink: (50/250)","color":"purple"}
+/bossbar add purple_ink_75 {"text":"Ink: (75/250)","color":"purple"}
+/bossbar add purple_ink_100 {"text":"Ink: (100/250)","color":"purple"}
+/bossbar add purple_ink_125 {"text":"Ink: (125/250)","color":"purple"}
+/bossbar add purple_ink_175 {"text":"Ink: (175/250)","color":"purple"}
+/bossbar add purple_ink_200 {"text":"Ink: (200/250)","color":"purple"}
+/bossbar add purple_ink_225 {"text":"Ink: (225/250)","color":"purple"}
+/bossbar add purple_ink_250 {"text":"Ink: (250/250)","color":"purple"}
+
+/bossbar set minecraft:purple_ink_0 max 10
+/bossbar set minecraft:purple_ink_25 max 10
+/bossbar set minecraft:purple_ink_50 max 10
+/bossbar set minecraft:purple_ink_75 max 10
+/bossbar set minecraft:purple_ink_100 max 10
+/bossbar set minecraft:purple_ink_125 max 10
+/bossbar set minecraft:purple_ink_175 max 10
+/bossbar set minecraft:purple_ink_200 max 10
+/bossbar set minecraft:purple_ink_225 max 10
+/bossbar set minecraft:purple_ink_250 max 10
+
+/bossbar set minecraft:purple_ink_0 value 0
+/bossbar set minecraft:purple_ink_25 value 2
+/bossbar set minecraft:purple_ink_50 value 3
+/bossbar set minecraft:purple_ink_75 value 4
+/bossbar set minecraft:purple_ink_100 value 5
+/bossbar set minecraft:purple_ink_125 value 6
+/bossbar set minecraft:purple_ink_175 value 7
+/bossbar set minecraft:purple_ink_200 value 8
+/bossbar set minecraft:purple_ink_225 value 9
+/bossbar set minecraft:purple_ink_250 value 10
+
+/bossbar set minecraft:purple_ink_0 color purple
+/bossbar set minecraft:purple_ink_25 color purple
+/bossbar set minecraft:purple_ink_50 color purple
+/bossbar set minecraft:purple_ink_75 color purple
+/bossbar set minecraft:purple_ink_100 color purple
+/bossbar set minecraft:purple_ink_125 color purple
+/bossbar set minecraft:purple_ink_175 color purple
+/bossbar set minecraft:purple_ink_200 color purple
+/bossbar set minecraft:purple_ink_225 color purple
+/bossbar set minecraft:purple_ink_250 color purple
+
+/bossbar set minecraft:purple_ink_0 style notched_10
+/bossbar set minecraft:purple_ink_25 style notched_10
+/bossbar set minecraft:purple_ink_50 style notched_10
+/bossbar set minecraft:purple_ink_75 style notched_10
+/bossbar set minecraft:purple_ink_100 style notched_10
+/bossbar set minecraft:purple_ink_125 style notched_10
+/bossbar set minecraft:purple_ink_175 style notched_10
+/bossbar set minecraft:purple_ink_200 style notched_10
+/bossbar set minecraft:purple_ink_225 style notched_10
+/bossbar set minecraft:purple_ink_250 style notched_10
+
+
+
+
+/bossbar add ink_0 {"text":"Ink: (0/250)","color":"purple"}
+/bossbar add ink_25 {"text":"Ink: (25/250)","color":"purple"}
+/bossbar add ink_50 {"text":"Ink: (50/250)","color":"purple"}
+/bossbar add ink_75 {"text":"Ink: (75/250)","color":"purple"}
+/bossbar add ink_100 {"text":"Ink: (100/250)","color":"purple"}
+/bossbar add ink_125 {"text":"Ink: (125/250)","color":"purple"}
+/bossbar add ink_175 {"text":"Ink: (175/250)","color":"purple"}
+/bossbar add ink_200 {"text":"Ink: (200/250)","color":"purple"}
+/bossbar add ink_225 {"text":"Ink: (225/250)","color":"purple"}
+/bossbar add ink_250 {"text":"Ink: (250/250)","color":"purple"}
+
+/bossbar add cyan_ink_0 {"text":"Ink: (0/250)","color":"blue"}
+/bossbar add cyan_ink_25 {"text":"Ink: (25/250)","color":"blue"}
+/bossbar add cyan_ink_50 {"text":"Ink: (50/250)","color":"blue"}
+/bossbar add cyan_ink_75 {"text":"Ink: (75/250)","color":"blue"}
+/bossbar add cyan_ink_100 {"text":"Ink: (100/250)","color":"blue"}
+/bossbar add cyan_ink_125 {"text":"Ink: (125/250)","color":"blue"}
+/bossbar add cyan_ink_175 {"text":"Ink: (175/250)","color":"blue"}
+/bossbar add cyan_ink_200 {"text":"Ink: (200/250)","color":"blue"}
+/bossbar add cyan_ink_225 {"text":"Ink: (225/250)","color":"blue"}
+/bossbar add cyan_ink_250 {"text":"Ink: (250/250)","color":"blue"}
+
+/bossbar set minecraft:cyan_ink_0 max 10
+/bossbar set minecraft:cyan_ink_25 max 10
+/bossbar set minecraft:cyan_ink_50 max 10
+/bossbar set minecraft:cyan_ink_75 max 10
+/bossbar set minecraft:cyan_ink_100 max 10
+/bossbar set minecraft:cyan_ink_125 max 10
+/bossbar set minecraft:cyan_ink_175 max 10
+/bossbar set minecraft:cyan_ink_200 max 10
+/bossbar set minecraft:cyan_ink_225 max 10
+/bossbar set minecraft:cyan_ink_250 max 10
+
+/bossbar set minecraft:cyan_ink_0 value 0
+/bossbar set minecraft:cyan_ink_25 value 2
+/bossbar set minecraft:cyan_ink_50 value 3
+/bossbar set minecraft:cyan_ink_75 value 4
+/bossbar set minecraft:cyan_ink_100 value 5
+/bossbar set minecraft:cyan_ink_125 value 6
+/bossbar set minecraft:cyan_ink_175 value 7
+/bossbar set minecraft:cyan_ink_200 value 8
+/bossbar set minecraft:cyan_ink_225 value 9
+/bossbar set minecraft:cyan_ink_250 value 10
+
+/bossbar set minecraft:cyan_ink_0 color blue
+/bossbar set minecraft:cyan_ink_25 color blue
+/bossbar set minecraft:cyan_ink_50 color blue
+/bossbar set minecraft:cyan_ink_75 color blue
+/bossbar set minecraft:cyan_ink_100 color blue
+/bossbar set minecraft:cyan_ink_125 color blue
+/bossbar set minecraft:cyan_ink_175 color blue
+/bossbar set minecraft:cyan_ink_200 color blue
+/bossbar set minecraft:cyan_ink_225 color blue
+/bossbar set minecraft:cyan_ink_250 color blue
+
+/bossbar set minecraft:cyan_ink_0 style notched_10
+/bossbar set minecraft:cyan_ink_25 style notched_10
+/bossbar set minecraft:cyan_ink_50 style notched_10
+/bossbar set minecraft:cyan_ink_75 style notched_10
+/bossbar set minecraft:cyan_ink_100 style notched_10
+/bossbar set minecraft:cyan_ink_125 style notched_10
+/bossbar set minecraft:cyan_ink_175 style notched_10
+/bossbar set minecraft:cyan_ink_200 style notched_10
+/bossbar set minecraft:cyan_ink_225 style notched_10
+/bossbar set minecraft:cyan_ink_250 style notched_10
+
+# scheduled functions
+
+/schedule function splatoon:random_stuff 1s
+
+var id playerid = 0;
+/scoreboard players reset * id
+bool playerid @a = false;
+/team add purple {"text":"UltimativesViolett"}
+/team add cyan {"text":"HerzzerreißendesTürkis"}
+/team modify purple color dark_purple
+/team modify cyan color aqua
+/team modify purple collisionRule never
+/team modify cyan collisionRule never
+/scoreboard objectives add leave trigger
+var id armorstandid = 0;
+/gamerule randomTickSpeed 0
+#welcome message
+/tellraw @a [{"text":"Herzlich Willkommen in dem ","color":"reset"},{"text":"Farbverschießspiel","color":"gold"},{"text":" in Minecraft"},{"text":" "}]

@@ -1,0 +1,49 @@
+asat(@r) {
+  //A random armorstand will be selected
+  bool selected @e[type=armor_stand,name=squid,sort=random,limit=1,tag=!selected] = true;
+}
+
+asat(@a[scores={sneak=1..}]) {
+      //var sneak @s = run: scoreboard players get @s sneak;
+      //It checks if the armorstand has the same id like all players that are sneaking
+      if(id @s = id @e[type=armor_stand,tag=selected,limit=1]) {
+        /tp @e[type=armor_stand,tag=selected,name=squid,limit=1] @s
+        if('entity @s[team=purple]') {
+          if('entity @s[tag=!hiding]') {
+            if(!'entity @e[type=armor_stand,tag=selected,name=squid,limit=1,nbt={ArmorItems:[{},{},{},{id:"minecraft:stone_shovel",tag:{Damage:2,Unbreakable:1}}]}]') {
+              /replaceitem entity @e[type=armor_stand,name=squid,tag=selected,limit=1] armor.head minecraft:stone_shovel{Damage:2,Unbreakable:1}
+            }
+          } else {
+            /replaceitem entity @e[type=armor_stand,name=squid,tag=selected,limit=1] armor.head minecraft:air
+          }
+        }
+        if('entity @s[team=cyan]') {
+          if('entity @s[tag=!hiding]') {
+            if(!'entity @e[type=armor_stand,tag=selected,name=squid,limit=1,nbt={ArmorItems:[{},{},{},{id:"minecraft:stone_shovel",tag:{Damage:1,Unbreakable:1}}]}]') {
+              /replaceitem entity @e[type=armor_stand,name=squid,tag=selected,limit=1] armor.head minecraft:stone_shovel{Damage:1,Unbreakable:1}
+            }
+          } else {
+            /replaceitem entity @e[type=armor_stand,name=squid,tag=selected,limit=1] armor.head minecraft:air
+          }
+        }
+        if(!'entity @s[team=purple]') {
+          if(!'entity @s[team=cyan]') {
+            if('entity @s[tag=!hiding]') {
+              if(!'entity @e[type=armor_stand,tag=selected,name=squid,limit=1,nbt={ArmorItems:[{},{},{},{id:"minecraft:stone_shovel",tag:{Damage:3,Unbreakable:1}}]}]') {
+                /replaceitem entity @e[type=armor_stand,name=squid,tag=selected,limit=1] armor.head minecraft:stone_shovel{Damage:3,Unbreakable:1}
+              }
+            } else {
+              /replaceitem entity @e[type=armor_stand,name=squid,tag=selected,limit=1] armor.head minecraft:air
+            }
+        }
+      }
+    }
+    bool selected @e[type=armor_stand,name=squid,tag=selected] = false;
+}
+asat(@r[scores={sneak=0}]) {
+  bool selected @e[type=armor_stand,name=squid,sort=random,limit=1] = true;
+    if(id @s = id @e[type=armor_stand,tag=selected,limit=1]) {
+        /replaceitem entity @e[type=armor_stand,name=squid,tag=selected,limit=1] armor.head minecraft:air
+    }
+    bool selected @e[type=armor_stand,name=squid,tag=selected] = false;
+}

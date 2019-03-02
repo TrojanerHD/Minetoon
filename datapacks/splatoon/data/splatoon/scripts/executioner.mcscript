@@ -1,0 +1,19 @@
+asat(@a) {
+  if(invisibility @s) {
+    /effect give @s invisibility 1 0 true
+  }
+  if(!invisibility @s) {
+    /effect clear @s invisibility
+  }
+  if(speed @s) {
+    /scoreboard players add @s second 1
+    /effect give @s speed 1 20 true
+    as(@s[scores={second=5..}]){
+      /function splatoon:second
+      /scoreboard players set @a second 0
+    }
+  }
+  if(!speed @s) {
+    /effect clear @s speed
+  }
+}

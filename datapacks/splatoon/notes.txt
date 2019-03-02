@@ -1,0 +1,27 @@
+NOTIZEN
+Ablauf:
+  Spielstart:
+    Map kopieren zu 27 5 -206:
+      (Untere linke vordere Ecke, obere rechte hintere Ecke (Angaben vom Spawn aus gesehen))
+    Teams zu deren Spawnpoint teleportieren:
+        Spawnpoints = armorstands mit tags (purpleSP,cyanSP)
+        Spielern im Spiel den Tag 'lobby' entfernen
+  Spielende:
+
+Maximale Tinte: 250
+- /trigger infinityink gibt einem immer die maximale Tinte
+
+TODO
+- Idee überlegen, wie man festlegt, welche Map genommen werden soll
+- Weißen Squid einfügen, falls der Spieler in keinem Team ist
+-
+
+STRUKTUR
+climbing: Die Blöcke hochklettern
+falling: Durch Trapdoors fallen
+hiding: In der eigenen Farbe verstecken
+main: Gun und Randomfeatures
+squid: Dass der Tintenfisch unter einem angezeigt wird
+teamhandler: Weist die Spieler via Armorstand einem Team zu
+
+ISSUES

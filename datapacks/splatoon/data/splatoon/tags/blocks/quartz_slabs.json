@@ -1,0 +1,11 @@
+{
+  "values":[
+    "minecraft:prismarine_brick_slab",
+    "minecraft:purpur_slab",
+    "minecraft:cobblestone_slab",
+    "#minecraft:wooden_slabs",
+    "minecraft:stone_slab",
+    "minecraft:smooth_stone_slab",
+    "minecraft:quartz_slab"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "values":[
+    "minecraft:white_concrete",
+    "minecraft:purple_concrete",
+    "minecraft:cyan_concrete",
+    "minecraft:grass_block",
+    "minecraft:dirt",
+    "#minecraft:logs",
+    "minecraft:cobblestone",
+    "minecraft:andesite",
+    "minecraft:quartz_block",
+    "minecraft:stone",
+    "minecraft:red_concrete"
+  ]
+}

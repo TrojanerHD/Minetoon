@@ -1,0 +1,8 @@
+#file: ./test
+var test @a = 0;
+if(test @s == 0) {
+  /say hello
+}
+
+#extend: ./main
+#/say hi

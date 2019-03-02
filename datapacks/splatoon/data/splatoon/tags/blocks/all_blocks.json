@@ -1,0 +1,22 @@
+{
+  "values": [
+    "#splatoon:concretes",
+    "#splatoon:glass_panes",
+    "#splatoon:quartz_slabs",
+    "#splatoon:glass",
+    "#splatoon:quartz_pillar",
+    "#splatoon:chiseled_quartz_block",
+    "minecraft:quartz_stairs",
+    "minecraft:prismarine_brick_stairs",
+    "minecraft:purpur_stairs",
+    "minecraft:white_concrete_powder",
+    "minecraft:cyan_concrete_powder",
+    "minecraft:purple_concrete_powder",
+    "minecraft:iron_bars",
+    "minecraft:quartz_block",
+    "minecraft:quartz_slab",
+    "minecraft:smooth_stone_slab",
+    "minecraft:sand",
+    "minecraft:red_concrete"
+  ]
+}

@@ -1,0 +1,14 @@
+
+{
+  "values":[
+    "splatoon:main",
+    "splatoon:executioner",
+    "splatoon:teamhandler",
+    "splatoon:weapons/weaponhandler",
+    "splatoon:weapons/motion",
+    "splatoon:cheats",
+    "splatoon:minigame",
+    "splatoon:inkbar",
+    "splatoon:hphandler"
+  ]
+}
