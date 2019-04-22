@@ -7,7 +7,6 @@
     "splatoon:weapons/weaponhandler",
     "splatoon:weapons/motion",
     "splatoon:cheats",
-    "splatoon:minigame",
     "splatoon:hphandler",
     "splatoon:developers/handledevtools"
   ]
