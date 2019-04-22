@@ -18,6 +18,9 @@ asat(@r[scores={sneak=1..},tag=!falling]) {
           /effect clear @s levitation
         }
       }
+      if(@s[scores={sneak=0}]) {
+        /effect clear @s levitation
+      }
     }
   }
 }
