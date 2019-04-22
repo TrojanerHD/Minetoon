@@ -9,6 +9,7 @@
     "splatoon:cheats",
     "splatoon:minigame",
     "splatoon:inkbar",
-    "splatoon:hphandler"
+    "splatoon:hphandler",
+    "splatoon:developers/handledevtools"
   ]
 }

@@ -9,8 +9,14 @@ scoreboard objectives add counter dummy
 scoreboard objectives add start dummy
 execute unless entity @e[tag=mcscriptTags] at @p run summon armor_stand ~ ~ ~ {Tags:[mcscriptTags],Invisible:1,Invulnerable:1,NoGravity:1}
 
-# Extended from data/splatoon/functions/falling.mcscript
-# to splatoon/data/splatoon/functions/mcscript/load.mcfunction
+# Extended from splatoon/functions/developers/handledevtools.mcscript
+# to data/splatoon/functions/mcscript/load.mcfunction
+# please do not touch this file!
+# it is used by the compiler!
+scoreboard objectives add devtools dummy
+
+# Extended from data/splatoon/functions/hiding.mcscript
+# to data/splatoon/functions/mcscript/load.mcfunction
 # please do not touch this file!
 # it is used by the compiler!
 scoreboard objectives add sneak dummy
@@ -27,12 +33,6 @@ scoreboard objectives add hp dummy
 # it is used by the compiler!
 scoreboard objectives add id dummy
 scoreboard objectives add Age dummy
-
-# Extended from data/splatoon/functions/teamhandler.mcscript
-# to splatoon/data/splatoon/functions/mcscript/load.mcfunction
-# please do not touch this file!
-# it is used by the compiler!
-scoreboard objectives add leave dummy
 
 # Extended from data/splatoon/functions/test.mcscript
 # to splatoon/data/splatoon/functions/mcscript/load.mcfunction

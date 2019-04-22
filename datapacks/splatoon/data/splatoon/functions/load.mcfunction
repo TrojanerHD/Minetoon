@@ -27,6 +27,7 @@ scoreboard objectives add start dummy
 scoreboard players reset @a start
 scoreboard objectives add second dummy
 scoreboard objectives add timer dummy
+scoreboard objectives add devtools trigger
 #bossbar time
 bossbar add time "Time"
 bossbar set minecraft:time max 3600

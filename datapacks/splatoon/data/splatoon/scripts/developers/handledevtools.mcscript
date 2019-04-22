@@ -1,0 +1,8 @@
+#file: ./handledevtools
+/scoreboard players enable @a devtools
+as(@r) {
+  var devtools @s = run: scoreboard players get @s devtools
+  if(@s[scores={devtools=1..}]) {
+    /function splatoon:developers/givedevtools
+  }
+}
