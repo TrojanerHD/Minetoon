@@ -175,4 +175,4 @@ bool playerid @a = false;
 var id armorstandid = 0;
 /gamerule randomTickSpeed 0
 #welcome message
-/tellraw @a [{"text":"Herzlich Willkommen in dem ","color":"reset"},{"text":"Farbverschießspiel","color":"gold"},{"text":" in Minecraft"},{"text":" "}]
+/tellraw @a [{"text":"Welcome to ","color":"reset"},{"text":"Minetoon","color":"gold"},{"text":"!","color":"reset"}]
