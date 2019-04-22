@@ -1,3 +1,5 @@
+#file: ./executioner
+
 asat(@a) {
   if(@s[tag=invisibility]) {
     /effect give @s invisibility 1 0 true
