@@ -29,8 +29,6 @@ execute as @e[type=item] store result score @s Age run data get entity @s Age
 execute as @r[tag=del] at @s as @e[type=item,distance=..2,scores={Age=..20}] run kill @s
 execute as @r[scores={start=1..}] run tag @a remove lobby
 execute as @r[scores={start=1..}] run scoreboard players remove @s start 1
-execute as @r[scores={start=1..}] run bossbar set minecraft:time visible true
-execute as @r[scores={start=1..}] store result bossbar minecraft:time value run scoreboard players get @s start
 execute as @r[scores={start=1..}] if score @s start matches 2400 run title @a actionbar [{"text":"Noch 2 Minuten!","color":"yellow"}]
 execute as @r[scores={start=1..}] if score start start matches 1200 run title @a actionbar [{"text":"Noch 1 Minute!","color":"yellow"}]
 execute as @r[scores={start=1..}] if score start start matches 600 run title @a actionbar [{"text":"Noch 30 Sekunden!","color":"red"}]
@@ -48,4 +46,4 @@ execute as @a if score @s ink matches 251.. run scoreboard players set @s ink 25
 execute as @a if score @s ink matches ..0 run scoreboard players set @s ink 0
 # Extended from data/splatoon/functions/test.mcscript
 # to .//splatoon/data/splatoon/functions/main.mcfunction
-#/say hi
+#/say hi

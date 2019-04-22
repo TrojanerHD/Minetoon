@@ -1,0 +1,5 @@
+as(@r[scores={start=1..}]) {
+  /xp add @a -1 levels
+}
+
+/schedule function splatoon:timedisplay 1s

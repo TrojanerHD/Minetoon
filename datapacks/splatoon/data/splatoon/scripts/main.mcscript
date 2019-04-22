@@ -57,8 +57,8 @@ as(@r[scores={start=1..}]){
   }
   lobby @a = false;
   /scoreboard players remove @s start 1
-  /bossbar set minecraft:time visible true
-  /execute store result bossbar minecraft:time value run scoreboard players get @s start
+  // /bossbar set minecraft:time visible true
+  // /execute store result bossbar minecraft:time value run scoreboard players get @s start
   if(start @s == 2400) {
     /title @a actionbar [{"text":"Noch 2 Minuten!","color":"yellow"}]
   }

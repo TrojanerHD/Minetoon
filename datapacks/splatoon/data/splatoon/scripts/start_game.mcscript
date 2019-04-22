@@ -4,7 +4,11 @@ as(@r) {
       if('block ~ ~ ~ minecraft:stone_button[powered=true]') {
         /tag @a remove lobby
         /scoreboard players add @p start 3600
+        /xp set @a 0 points
+        /xp set @a 0 levels
+        /xp add @a 180 levels
         hasStart = true;
+        /function splatoon:timedisplay
       }
     }
   }
