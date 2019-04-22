@@ -39,8 +39,6 @@ execute as @a[scores={timer=1..}] if score @s timer matches ..0 run tp @a 9.98 9
 execute as @a if score @s ink matches 251.. run scoreboard players set @s ink 250
 execute as @a if score @s ink matches ..0 run scoreboard players set @s ink 0
 execute as @e[type=area_effect_cloud] run data merge entity @s {Duration:2147483647}
-execute as @e[type=area_effect_cloud] run data merge entity @s {Duration:2147483647}
-execute as @e[type=area_effect_cloud] run data merge entity @s {Duration:2147483647}
 # Extended from data/splatoon/functions/test.mcscript
 # to .//splatoon/data/splatoon/functions/main.mcfunction
-#/say hi
+#/say hi
