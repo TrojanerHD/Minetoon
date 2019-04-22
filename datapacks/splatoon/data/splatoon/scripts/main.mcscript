@@ -19,6 +19,7 @@ asat(@a) {
   sneak @s = 0;
 }
 
+//Sets an unique id for every squid armor stand
 as(@e[type=armor_stand,name=squid,limit=1,sort=random,tag=!armorstandid]) {
     var id @s = run: scoreboard players get armorstandid id;
     id armorstandid++;
@@ -34,6 +35,7 @@ as(@r[tag=!playerid]) {
   bool receiveID @s = true;
 }
 
+//Gives every player an unique id to get an assigned squid armor stand
 as(@a[tag=receiveID]) {
   var id @s = run: scoreboard players get playerid id;
   id playerid++;
@@ -53,7 +55,7 @@ asat(@r[tag=del]) {
 
 as(@r[scores={start=1..}]){
   as(@a[tag=lobby]){
-
+    //TODO: Handle if someone has the tag lobby
   }
   lobby @a = false;
   /scoreboard players remove @s start 1
