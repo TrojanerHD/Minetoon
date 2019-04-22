@@ -15,18 +15,12 @@ execute as @a at @s run scoreboard players enable @s leave
 execute as @a at @s if block ~ ~-0.1 ~ #splatoon:killblocks run tag @s add dead
 execute as @a at @s if block ~ ~-0.1 ~ #splatoon:alllist[waterlogged=true] run tag @s add dead
 execute as @a at @s run scoreboard players set @s sneak 0
-execute as @e[type=armor_stand,name=squid,limit=1,sort=random,tag=!armorstandid] store result score @s id run scoreboard players get armorstandid id
-execute as @e[type=armor_stand,name=squid,limit=1,sort=random,tag=!armorstandid] run scoreboard players add armorstandid id 1
-execute as @e[type=armor_stand,name=squid,limit=1,sort=random,tag=!armorstandid] run tag @s add armorstandid
-execute as @r[tag=!summonedStand] at @s run summon armor_stand ~ ~ ~ {Invisible:1,CustomName:"{\"text\":\"squid\"}",NoGravity:1,Marker:1}
-execute as @r[tag=!summonedStand] at @s run tag @s add summonedStand
+execute as @e[type=armor_stand,name=squid,limit=1,sort=random,tag=!armorstandid] run function splatoon:squid/uid
+execute as @r[tag=!summonedStand] at @s run function splatoon:squid/summon
 execute as @r[tag=!playerid] run tag @s add receiveID
-execute as @a[tag=receiveID] store result score @s id run scoreboard players get playerid id
-execute as @a[tag=receiveID] run scoreboard players add playerid id 1
-execute as @a[tag=receiveID] run tag @s add playerid
-execute as @a[tag=receiveID] run tag @s remove receiveID
+execute as @a[tag=receiveID] run function splatoon:squid/playerids
 execute as @e[type=item] store result score @s Age run data get entity @s Age
-execute as @r[tag=del] at @s as @e[type=item,distance=..2,scores={Age=..20}] run kill @s
+execute as @r[tag=del] at @s run function splatoon:random/dropitemstodelete
 execute as @r[scores={start=1..}] run tag @a remove lobby
 execute as @r[scores={start=1..}] run scoreboard players remove @s start 1
 execute as @r[scores={start=1..}] if score @s start matches 2400 run title @a actionbar [{"text":"Noch 2 Minuten!","color":"yellow"}]

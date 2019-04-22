@@ -21,14 +21,18 @@ asat(@a) {
 
 //Sets an unique id for every squid armor stand
 as(@e[type=armor_stand,name=squid,limit=1,sort=random,tag=!armorstandid]) {
+  run function "squid/uid" {
     var id @s = run: scoreboard players get armorstandid id;
     id armorstandid++;
     bool armorstandid @s = true;
+  }
 }
 
 asat(@r[tag=!summonedStand]) {
-  /summon armor_stand ~ ~ ~ {Invisible:1,CustomName:"{\"text\":\"squid\"}",NoGravity:1,Marker:1}
-  bool summonedStand @s = true;
+  run function "squid/summon" {
+    /summon armor_stand ~ ~ ~ {Invisible:1,CustomName:"{\"text\":\"squid\"}",NoGravity:1,Marker:1}
+    bool summonedStand @s = true;
+  }
 }
 
 as(@r[tag=!playerid]) {
@@ -37,10 +41,12 @@ as(@r[tag=!playerid]) {
 
 //Gives every player an unique id to get an assigned squid armor stand
 as(@a[tag=receiveID]) {
-  var id @s = run: scoreboard players get playerid id;
-  id playerid++;
-  bool playerid @s = true;
-  receiveID @s = false;
+  run function "squid/playerids" {
+    var id @s = run: scoreboard players get playerid id;
+    id playerid++;
+    bool playerid @s = true;
+    receiveID @s = false;
+  }
 }
 
 as(@e[type=item]) {
@@ -48,8 +54,10 @@ as(@e[type=item]) {
 }
 
 asat(@r[tag=del]) {
-  as(@e[type=item,distance=..2,scores={Age=..20}]) {
-    /kill @s
+  run function "random/dropitemstodelete" {
+    as(@e[type=item,distance=..2,scores={Age=..20}]) {
+      /kill @s
+    }
   }
 }
 
