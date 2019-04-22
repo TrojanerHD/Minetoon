@@ -1,0 +1,3 @@
+/clone -35 7 -84 -10 20 -39 28 6 -205
+/tp @a[team=purple] 49 10 -164
+/tp @a[team=cyan] 32 10 -201
