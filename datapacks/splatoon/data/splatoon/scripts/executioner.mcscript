@@ -1,11 +1,11 @@
 asat(@a) {
-  if(invisibility @s) {
+  if(@s[tag=invisibility]) {
     /effect give @s invisibility 1 0 true
   }
-  if(!invisibility @s) {
+  if(@s[tag=!invisibility]) {
     /effect clear @s invisibility
   }
-  if(speed @s) {
+  if(@s[tag=speed]) {
     /scoreboard players add @s second 1
     /effect give @s speed 1 20 true
     as(@s[scores={second=5..}]){
@@ -13,7 +13,7 @@ asat(@a) {
       /scoreboard players set @a second 0
     }
   }
-  if(!speed @s) {
+  if(@s[tag=!speed]) {
     /effect clear @s speed
   }
 }
