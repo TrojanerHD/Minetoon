@@ -98,6 +98,8 @@ as(@a) {
   if('score @s ink matches ..0') {
     /scoreboard players set @s ink 0
   }
+}
 
-
+as(@e[type=area_effect_cloud]) {
+  /data merge entity @s {Duration:2147483647}
 }

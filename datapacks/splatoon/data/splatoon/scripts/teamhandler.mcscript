@@ -1,9 +1,9 @@
 asat(@a) {
-  if('entity @e[type=armor_stand,name="set cyan",distance=..2]'&&'entity @s[team=!cyan]') {
+  if('entity @e[type=area_effect_cloud,name="set cyan",distance=..2]'&&'entity @s[team=!cyan]') {
     /tellraw @s [{"text":"Du bist nun in Team ","color":"reset"},{"text":"Cyan","color":"aqua"},{"text":"!","color":"reset"}]
     /team join cyan @s
   }
-  if('entity @e[type=armor_stand,name="set purple",distance=..2]'&&'entity @s[team=!purple]') {
+  if('entity @e[type=area_effect_cloud,name="set purple",distance=..2]'&&'entity @s[team=!purple]') {
     /tellraw @s [{"text":"Du bist nun in Team ","color":"reset"},{"text":"Purple","color":"dark_purple"},{"text":"!","color":"reset"}]
     /team join purple @s
   }
