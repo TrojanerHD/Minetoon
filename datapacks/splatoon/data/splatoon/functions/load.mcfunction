@@ -162,5 +162,5 @@ scoreboard objectives add leave trigger
 scoreboard players set armorstandid id 0
 gamerule randomTickSpeed 0
 #welcome message
-tellraw @a [{"text":"Herzlich Willkommen in dem ","color":"reset"},{"text":"Farbverschießspiel","color":"gold"},{"text":" in Minecraft"},{"text":" "}]
+tellraw @a [{"text":"Welcome to ","color":"reset"},{"text":"Minetoon","color":"gold"},{"text":"!","color":"reset"}]
 execute unless entity @e[tag=mcscriptTags] at @p run summon armor_stand ~ ~ ~ {Tags:[mcscriptTags],Invisible:1,Invulnerable:1,NoGravity:1}
