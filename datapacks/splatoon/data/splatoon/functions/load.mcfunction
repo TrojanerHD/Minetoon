@@ -153,6 +153,8 @@ tag @a remove playerid
 team add purple {"text":"UltimativesViolett"}
 team add cyan {"text":"HerzzerreißendesTürkis"}
 team modify purple color dark_purple
+team modify cyan nametagVisibility always
+team modify purple nametagVisibility always
 team modify cyan color aqua
 team modify purple collisionRule never
 team modify cyan collisionRule never
