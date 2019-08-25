@@ -1,0 +1,24 @@
+#file: ./weapons
+asat(@a[scores={click=1..}]) {
+  if(@s[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{CustomModelData:1,display:{Name:"{\"text\":\"Splattershot\"}"}}}}]) {
+    /summon armor_stand ~ ~1 ~ {Small:1b,Tags:["bullet1"]}
+    /tp @e[tag=bullet1,distance=..0.5] @s
+    /scoreboard players add @e[tag=bullet1] air 500
+    /scoreboard players add @e[tag=bullet1] life 1000
+    asat(@e[tag=bullet1]) {
+
+    }
+
+  } else if(@s[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{CustomModelData:2,display:{Name:"{\"text\":\"Sepiator\"}"}}}}]) {
+    /summon armor_stand ~ ~1 ~ {Small:1b,Tags:["bullet2"]}
+    /tp @e[tag=bullet2,distance=..0.5] @s
+  } else if(@s[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{CustomModelData:3,display:{Name:'{"text":"Slosher"}'}}}}]) {
+    /summon armor_stand ~ ~1 ~ {Small:1b,Tags:["bullet3"]}
+    /tp @e[tag=bullet3,distance=..0.5] @s
+  } else if(@s[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{CustomModelData:4,display:{Name:"{\"text\":\"Slosher\"}"}}}}]) {
+    /summon armor_stand ~ ~1 ~ {Small:1b,Tags:["bullet4"]}
+    /tp @e[tag=bullet4,distance=..0.5] @s
+  }
+
+  /scoreboard players reset @s click
+}

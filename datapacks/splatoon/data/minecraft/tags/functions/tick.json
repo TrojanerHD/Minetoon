@@ -4,10 +4,9 @@
     "splatoon:main",
     "splatoon:executioner",
     "splatoon:teamhandler",
-    "splatoon:weapons/weaponhandler",
-    "splatoon:weapons/motion",
     "splatoon:cheats",
     "splatoon:hphandler",
-    "splatoon:developers/handledevtools"
+    "splatoon:developers/handledevtools",
+    "splatoon:weapons/weapons"
   ]
 }
