@@ -6,21 +6,34 @@ asat(@r[scores={sneak=1..},tag=!falling]) {
           /effect give @s levitation 1 10 true
           invisibility @s = true;
         }
-        if(!'block ^ ^ ^1 #splatoon:purple_hide') {
-          /effect clear @s levitation
-        }
+
       } else if('entity @s[team=cyan]') {
         if('block ^ ^ ^1 #splatoon:cyan_hide') {
           /effect give @s levitation 1 10 true
           invisibility @s = true;
         }
-        if(!'block ^ ^ ^1 #splatoon:cyan_hide') {
-          /effect clear @s levitation
-        }
+
       }
       if(@s[scores={sneak=0}]) {
         /effect clear @s levitation
       }
+    }
+  }
+}
+
+as(@r[scores={sneak=0}]) {
+  /effect clear @s levitation
+}
+
+asat(@r) {
+  if(@s[team=purple]) {
+    if(!'block ^ ^ ^1 #splatoon:purple_hide') {
+      /effect clear @s levitation
+    }
+  }
+  if(@s[team=cyan]) {
+    if(!'block ^ ^ ^1 #splatoon:cyan_hide') {
+      /effect clear @s levitation
     }
   }
 }

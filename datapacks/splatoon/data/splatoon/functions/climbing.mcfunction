@@ -6,8 +6,9 @@
 ######
 execute as @r[scores={sneak=1..},tag=!falling] at @s unless entity @s[tag=lobby] anchored eyes if entity @s[team=purple] if block ^ ^ ^1 #splatoon:purple_hide run effect give @s levitation 1 10 true
 execute as @r[scores={sneak=1..},tag=!falling] at @s unless entity @s[tag=lobby] anchored eyes if entity @s[team=purple] if block ^ ^ ^1 #splatoon:purple_hide run tag @s add invisibility
-execute as @r[scores={sneak=1..},tag=!falling] at @s unless entity @s[tag=lobby] anchored eyes if entity @s[team=purple] unless block ^ ^ ^1 #splatoon:purple_hide run effect clear @s levitation
 execute as @r[scores={sneak=1..},tag=!falling] at @s unless entity @s[tag=lobby] anchored eyes unless entity @s[team=purple] if entity @s[team=cyan] if block ^ ^ ^1 #splatoon:cyan_hide run effect give @s levitation 1 10 true
 execute as @r[scores={sneak=1..},tag=!falling] at @s unless entity @s[tag=lobby] anchored eyes unless entity @s[team=purple] if entity @s[team=cyan] if block ^ ^ ^1 #splatoon:cyan_hide run tag @s add invisibility
-execute as @r[scores={sneak=1..},tag=!falling] at @s unless entity @s[tag=lobby] anchored eyes unless entity @s[team=purple] if entity @s[team=cyan] unless block ^ ^ ^1 #splatoon:cyan_hide run effect clear @s levitation
-execute as @r[scores={sneak=1..},tag=!falling] at @s unless entity @s[tag=lobby] anchored eyes if entity @s[scores={sneak=0}] run effect clear @s levitation
+execute as @r[scores={sneak=1..},tag=!falling] at @s unless entity @s[tag=lobby] anchored eyes if entity @s[scores={sneak=0}] run effect clear @s levitation
+execute as @r[scores={sneak=0}] run effect clear @s levitation
+execute as @r at @s if entity @s[team=purple] unless block ^ ^ ^1 #splatoon:purple_hide run effect clear @s levitation
+execute as @r at @s if entity @s[team=cyan] unless block ^ ^ ^1 #splatoon:cyan_hide run effect clear @s levitation
