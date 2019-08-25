@@ -28,6 +28,11 @@ scoreboard players reset @a start
 scoreboard objectives add second dummy
 scoreboard objectives add timer dummy
 scoreboard objectives add devtools trigger
+scoreboard objectives add air dummy "air"
+scoreboard objectives add tempHp dummy
+scoreboard players set @a tempHp -1
+scoreboard objectives add speed dummy "speed"
+scoreboard objectives as life dummy "leben"
 #bossbar time
 bossbar add time "Time"
 bossbar set minecraft:time max 3600
@@ -152,5 +157,4 @@ scoreboard objectives add leave trigger
 scoreboard players set armorstandid id 0
 gamerule randomTickSpeed 0
 #welcome message
-tellraw @a [{"text":"Welcome to ","color":"reset"},{"text":"Minetoon","color":"gold"},{"text":"!","color":"reset"}]
-execute unless entity @e[tag=mcscriptTags] at @p run summon armor_stand ~ ~ ~ {Tags:[mcscriptTags],Invisible:1,Invulnerable:1,NoGravity:1}
+tellraw @a [{"text":"Welcome to ","color":"reset"},{"text":"Minetoon","color":"gold"},{"text":"!","color":"reset"}]

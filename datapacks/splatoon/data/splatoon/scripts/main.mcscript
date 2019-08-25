@@ -55,7 +55,7 @@ asat(@r[tag=del]) {
   }
 }
 
-as(@r[scores={start=1..}]){
+as(@r[scores={start=1..}]) {
   as(@a[tag=lobby]){
     //TODO: Handle if someone has the tag lobby
   }
