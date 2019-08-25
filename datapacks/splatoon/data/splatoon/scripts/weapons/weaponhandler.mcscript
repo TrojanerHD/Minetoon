@@ -1,7 +1,7 @@
 #file: ./weaponhandler
-modal addweapon('name','damage','function') {
+modal addweapon('name', 'customModelData', 'function') {
   var delay @s = run: scoreboard players get @s delay;
-  if('entity @s[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{Unbreakable:1,display:{Name:"{\\"text\\":\\"$(name)\\"}"},Damage:$(damage)}}}]') {
+  if('entity @s[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",tag:{CustomModelData:$(customModelData),display:{Name:"{\\"text\\":\\"$(name)\\"}"}}}}]') {
     /function splatoon:weapons/$(function)
     delay @s = 0;
   }
