@@ -1,10 +1,10 @@
 asat(@r) {
   var sneak @s = run: scoreboard players get @s sneak;
-  if(!lobby @s) {
+  if(@s[tag=!lobby]) {
     // if the player is in the purple team
-    if('entity @s[team=purple]') {
+    if(@s[team=purple]) {
       // if the player is standing on a block from his/her team he gets invisibility and speed
-      if('block ~ ~-0.1 ~ #splatoon:purple_hide'&&sneak @s >= 1) {
+      if('block ~ ~-0.1 ~ #splatoon:purple_hide' && sneak @s >= 1) {
         hiding @s = true;
         invisibility @s = true;
         speed @s = true;
