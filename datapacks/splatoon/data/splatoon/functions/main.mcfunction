@@ -12,8 +12,6 @@ function splatoon:start_game
 execute as @a at @s run tag @e[tag=mcscriptTags] remove dead
 execute as @a at @s store result score @s sneak run scoreboard players get @s sneak
 execute as @a at @s run scoreboard players enable @s leave
-execute as @a at @s if block ~ ~-0.1 ~ #splatoon:killblocks run tag @s add dead
-execute as @a at @s if block ~ ~-0.1 ~ #splatoon:alllist[waterlogged=true] run tag @s add dead
 execute as @a at @s run scoreboard players set @s sneak 0
 execute as @e[type=armor_stand,name=squid,limit=1,sort=random,tag=!armorstandid] run function splatoon:squid/uid
 execute as @r[tag=!summonedStand] at @s run function splatoon:squid/summon

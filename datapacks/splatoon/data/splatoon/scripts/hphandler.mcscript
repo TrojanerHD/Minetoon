@@ -4,6 +4,15 @@
   damage @a[distance=0.5..,tag=damage] = false;
 }
 
+asat(@a[gamemode=!creative]) {
+  if('block ~ ~-0.1 ~ #splatoon:killblocks') {
+    dead @s = true;
+  }
+  if('block ~ ~-0.1 ~ #splatoon:alllist[waterlogged=true]') {
+      dead @s = true
+  }
+}
+
 if('entity @s[name=particle_cyan]') {
   bool tempdamage @a[distance=..0.5,team=purple,tag=!tempdamage,tag=!damage] = true;
   /scoreboard players remove @a[tag=tempdamage,tag=!damage] hp 1
@@ -16,12 +25,19 @@ if('entity @s[name=particle_purple]') {
   damage();
 }
 
-as(@a[scores={hp=..0}]) {
+as(@r[scores={hp=..0}]) {
   /scoreboard players set @s hp 0
+  /tag @s add dead
 }
 
-as(@r[tag=dead,gamemode=!creative]) {
-  /kill @s
-  bool dead @s = false;
-  var hp @s = 150;
+as(@r[tag=dead]) {
+  //If the player is dead
+  var hp @s = 6;
+}
+
+as(@r[team=cyan]) {
+  if('score @s hp = @s tempHp') {
+    /replaceitem entity @s container.1 minecraft:command_block{CustomModelData:12}
+    /scoreboard players set @s tempHp 6
+  }
 }

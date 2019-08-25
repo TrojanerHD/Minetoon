@@ -10,12 +10,6 @@ asat(@a) {
   bool dead = false;
   var sneak @s = run: scoreboard players get @s sneak;
   /scoreboard players enable @s leave
-  if('block ~ ~-0.1 ~ #splatoon:killblocks') {
-    dead @s = true;
-  }
-  if('block ~ ~-0.1 ~ #splatoon:alllist[waterlogged=true]') {
-      dead @s = true
-  }
   sneak @s = 0;
 }
 
